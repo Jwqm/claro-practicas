@@ -2,13 +2,13 @@ package com.example.springbootdemo.repository;
 
 import java.util.List;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.example.springbootdemo.model.Cellular;
 
 @Repository
-public interface CellularRepository extends CrudRepository<Cellular, String> {
+public interface CellularRepository extends JpaRepository<Cellular, String> {
     // Método para buscar por ID
     Cellular findByCellularNumber(String cellularNumber);
 

@@ -17,7 +17,7 @@ public class CellularService {
     private final CellularRepository cellularRepository;
 
     public List<CellularDTO> findAll() {
-        return cellularRepository.findAll().stream().map(item -> toCellularDTO(item)).toList();
+        return cellularRepository.findAll().stream().map(this::toCellularDTO).toList();
     }
 
     public CellularDTO findByCellularNumber(String cellularNumber) {

@@ -16,25 +16,25 @@ import com.example.springbootdemo.service.CellularService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1/cellulars")
 @RequiredArgsConstructor
 public class CellularController {
 
     private final CellularService cellularService;
 
-    @GetMapping("/cellulars")
+    @GetMapping
     @ResponseBody
     public List<CellularDTO> cellulars() {
         return cellularService.findAll();
     }
 
-    @GetMapping("/cellulars/{cellularNumber}")
+    @GetMapping("/{cellularNumber}")
     @ResponseBody
     public CellularDTO cellulars(@PathVariable("cellularNumber") String cellularNumber) {
         return cellularService.findByCellularNumber(cellularNumber);
     }
 
-    @PostMapping("/cellulars")
+    @PostMapping
     @ResponseBody
     public String cellulars(@RequestBody CellularDTO cellularDTO) {
         cellularService.save(cellularDTO);
