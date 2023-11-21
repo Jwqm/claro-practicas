@@ -27,7 +27,7 @@ public class CellularRepository {
         return cellularMapper.findAll();
     }
 
-    public void save(Cellular cellular) {
-        cellularMapper.save(cellular);
+    public int save(Cellular cellular) {
+        return cellularMapper.save(cellular);
     }
 }

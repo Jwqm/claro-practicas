@@ -8,12 +8,16 @@ import org.springframework.web.context.request.WebRequest;
 
 import com.example.springbootdemo.model.ApiError;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
     @ExceptionHandler( {Exception.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ApiError handleExceptions(Exception exception, WebRequest request) {
+        log.error("Se ha producido un error en {}: {}", request.getDescription(false), exception.getMessage());
         return ApiError.builder()
         .status(HttpStatus.INTERNAL_SERVER_ERROR)
         .error("Internal Server Error")
