@@ -3,6 +3,8 @@ package com.example.springbootdemo.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+
+import com.example.springbootdemo.annotations.log.Loggable;
 import com.example.springbootdemo.model.dto.CellularDTO;
 import com.example.springbootdemo.model.entities.Cellular;
 import com.example.springbootdemo.repository.CellularRepository;
@@ -17,6 +19,7 @@ public class CellularService {
 
     private final CellularRepository cellularRepository;
 
+    @Loggable
     public List<CellularDTO> findAll() {
         return cellularRepository.findAll().stream().map(this::toCellularDTO).toList();
     }
@@ -30,6 +33,7 @@ public class CellularService {
         return cellularDTO;
     }
 
+    @Loggable
     public int save(CellularDTO cellularDTO) {
         return cellularRepository.save(toCellular(cellularDTO));
     }

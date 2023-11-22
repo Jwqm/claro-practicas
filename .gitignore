@@ -1,3 +1,8 @@
 
 *.log
 *.log
+*.gz
+*.log
+*.log
+springbootdemo-mybatis/logs/springbootdemo-mybatis.log
+*.log
